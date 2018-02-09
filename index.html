@@ -1,0 +1,132 @@
+<html>
+    <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script>
+        jQuery(document).ready(function ($) {
+            $('input').change(function () {
+                var item_1 = {};
+                var item_1_total = 0;
+                $('#item-1 input').each(function () {
+                    var key = $(this).data('type');
+                    if (key == 'ap') {
+                        item_1[key] = parseFloat($(this).val());
+                    } else if (key == 's') {
+                        item_1[key] = parseFloat($(this).val() * 2);
+                    } else if (key == 'agi') {
+                        item_1[key] = parseFloat($(this).val() * 1.74);
+                    } else if (key == 'crit') {
+                        item_1[key] = parseFloat($(this).val() * 1.97);
+                    } else if (key == 'haste') {
+                        item_1[key] = parseFloat($(this).val() * 1.28);
+                    } else if (key == 'hit') {
+                        item_1[key] = parseFloat($(this).val() * 1.34);
+                    } else if (key == 'armor-pen') {
+                        item_1[key] = parseFloat($(this).val() * 0.22);
+                    } else if (key == 'exp') {
+                        item_1[key] = parseFloat($(this).val() * 3);
+                    }
+
+                    Object.keys(item_1).forEach(function(key) {
+                        console.log(item_1[key]);
+                        if (!isNaN(item_1[key])) {
+                            item_1_total += item_1[key];
+                        };
+                    });
+
+                    $('#item-1-total').text("total: " + item_1_total.toFixed(2));
+                });
+
+                var item_2 = {};
+                var item_2_total = 0;
+                $('#item-1 input').each(function () {
+                    var key = $(this).data('type');
+                    if (key == 'ap') {
+                        item_2[key] = parseFloat($(this).val());
+                    } else if (key == 's') {
+                        item_2[key] = parseFloat($(this).val() * 2);
+                    } else if (key == 'agi') {
+                        item_2[key] = parseFloat($(this).val() * 1.74);
+                    } else if (key == 'crit') {
+                        item_2[key] = parseFloat($(this).val() * 1.97);
+                    } else if (key == 'haste') {
+                        item_2[key] = parseFloat($(this).val() * 1.28);
+                    } else if (key == 'hit') {
+                        item_2[key] = parseFloat($(this).val() * 1.34);
+                    } else if (key == 'armor-pen') {
+                        item_2[key] = parseFloat($(this).val() * 0.22);
+                    } else if (key == 'exp') {
+                        item_2[key] = parseFloat($(this).val() * 3);
+                    }
+
+                    Object.keys(item_2).forEach(function(key) {
+                        console.log(item_2[key]);
+                        if (!isNaN(item_2[key])) {
+                            item_2_total += item_2[key];
+                        };
+                    });
+
+                    $('#item-1-total').text("total: " + item_2_total.toFixed(2));
+            });
+        });
+    </script>
+    <style>
+        .column {
+            float: left;
+            margin-left: 1%;
+            width: 32%;
+    }
+        label {
+            display: block;
+            height: 20px;
+            margin-bottom: 10px;
+        }
+
+        input {
+            height: 20px;
+            margin-bottom: 10px;
+            margin-left: 1%;
+            width: 100%;
+        }
+    </style>
+    </head>
+    <body>
+        <form>
+            <div class="column">
+            <label>Attack Power</label>
+            <label>Strength</label>
+            <label>Agility</label>
+            <label>Crit Rating</label>
+            <label>Haste Rating</label>
+            <label>Hit Rating</label>
+            <label>Armor Penetration</label>
+            <label>Expertise Rating</label>
+            <label>Total:</label>
+            </div>
+
+            <div id="item-1" class="column">
+            <input data-item="1" data-type="ap" type="number">
+            <input data-item="1" data-type="s" type="number">
+            <input data-item="1" data-type="agi" type="number">
+            <input data-item="1" data-type="crit" type="number">
+            <input data-item="1" data-type="haste" type="number">            
+            <input data-item="1" data-type="hit" type="number">            
+            <input data-item="1" data-type="armor-pen" type="number">
+            <input data-item="1" data-type="exp" type="number">
+            <span id="item-1-total">&nbsp;</span>
+            </div>
+
+            <div id="item-2" class="column">
+            <input data-item="2" data-type="ap" type="number">
+            <input data-item="2" data-type="s" type="number">
+            <input data-item="2" data-type="agi" type="number">
+            <input data-item="2" data-type="crit" type="number">
+            <input data-item="2" data-type="haste" type="number">
+            <input data-item="2" data-type="hit" type="number">
+            <input data-item="2" data-type="armor-pen" type="number">
+            <input data-item="2" data-type="exp" type="number">
+            <span id="item-2-total">&nbsp;</span>
+            </div>
+
+        </form>
+    </body>
+</html>
