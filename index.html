@@ -38,7 +38,7 @@
 
                 var item_2 = {};
                 var item_2_total = 0;
-                $('#item-1 input').each(function () {
+                $('#item-2 input').each(function () {
                     var key = $(this).data('type');
                     if (key == 'ap') {
                         item_2[key] = parseFloat($(this).val());
@@ -65,7 +65,8 @@
                         };
                     });
 
-                    $('#item-1-total').text("total: " + item_2_total.toFixed(2));
+                    $('#item-2-total').text("total: " + item_2_total.toFixed(2));
+                });
             });
         });
     </script>
@@ -126,7 +127,6 @@
             <input data-item="2" data-type="exp" type="number">
             <span id="item-2-total">&nbsp;</span>
             </div>
-
         </form>
     </body>
 </html>
